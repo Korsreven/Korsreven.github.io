@@ -133,6 +133,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a26ba1d7412d970e622a30b2d78a5d80d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a26ba1d7412d970e622a30b2d78a5d80d">TreeOutput</a> (std::optional&lt; script_tree::PrintOptions &gt; print_options) noexcept</td></tr>
 <tr class="memdesc:a26ba1d7412d970e622a30b2d78a5d80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets output options for the tree.  <a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a26ba1d7412d970e622a30b2d78a5d80d">More...</a><br /></td></tr>
 <tr class="separator:a26ba1d7412d970e622a30b2d78a5d80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85fe8760eff06ac7e6148d67dad7720"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#af85fe8760eff06ac7e6148d67dad7720">SaveOutput</a> (script_builder::OutputSaveOptions output_save_options) noexcept</td></tr>
+<tr class="memdesc:af85fe8760eff06ac7e6148d67dad7720"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets output save options for the builder.  <a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#af85fe8760eff06ac7e6148d67dad7720">More...</a><br /></td></tr>
+<tr class="separator:af85fe8760eff06ac7e6148d67dad7720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Observers</div></td></tr>
 <tr class="memitem:a1d625e2f0f76529f76f3eae1e8e4f2ba"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a1d625e2f0f76529f76f3eae1e8e4f2ba">Compiler</a> () noexcept</td></tr>
 <tr class="memdesc:a1d625e2f0f76529f76f3eae1e8e4f2ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the compiler.  <a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a1d625e2f0f76529f76f3eae1e8e4f2ba">More...</a><br /></td></tr>
@@ -170,6 +173,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac59083a199eb930b4efe0e6f20d7263f"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ac59083a199eb930b4efe0e6f20d7263f">TreeOutput</a> () const noexcept</td></tr>
 <tr class="memdesc:ac59083a199eb930b4efe0e6f20d7263f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns output options for the tree.  <a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ac59083a199eb930b4efe0e6f20d7263f">More...</a><br /></td></tr>
 <tr class="separator:ac59083a199eb930b4efe0e6f20d7263f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7749877fdf9ff0b0887f087932353fc7"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a7749877fdf9ff0b0887f087932353fc7">SaveOutput</a> () const noexcept</td></tr>
+<tr class="memdesc:a7749877fdf9ff0b0887f087932353fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns output save options for the builder.  <a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a7749877fdf9ff0b0887f087932353fc7">More...</a><br /></td></tr>
+<tr class="separator:a7749877fdf9ff0b0887f087932353fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Building</div></td></tr>
 <tr class="memitem:aab3b93a86f58cc137954041e68a0328f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#aab3b93a86f58cc137954041e68a0328f">Build</a> (std::string_view name)</td></tr>
 <tr class="memdesc:aab3b93a86f58cc137954041e68a0328f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a script entry with the given name (from a repository) by compiling and validating it.  <a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#aab3b93a86f58cc137954041e68a0328f">More...</a><br /></td></tr>
@@ -194,7 +200,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class that builds (lexes, parses, links and compiles) and validates the compiled tree structure. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00047">47</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00053">53</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aab3b93a86f58cc137954041e68a0328f" name="aab3b93a86f58cc137954041e68a0328f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab3b93a86f58cc137954041e68a0328f">&#9670;&#160;</a></span>Build()</h2>
@@ -215,7 +221,7 @@ Public Member Functions</h2></td></tr>
 <p>Builds a script entry with the given name (from a repository) by compiling and validating it. </p>
 <p >Returns true if the script is built successfully </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00101">101</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00104">104</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
 
 </div>
 </div>
@@ -238,7 +244,7 @@ Public Member Functions</h2></td></tr>
 <p>Builds a script file with the given file path by compiling and validating it. </p>
 <p >Returns true if the script is built successfully </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00113">113</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00116">116</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
 
 </div>
 </div>
@@ -271,7 +277,7 @@ Public Member Functions</h2></td></tr>
 <p>Builds a script file with the given file path (and root path) by compiling and validating it. </p>
 <p >Returns true if the script is built successfully </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00119">119</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00122">122</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
 
 </div>
 </div>
@@ -294,7 +300,7 @@ Public Member Functions</h2></td></tr>
 <p>Builds the given script string by compiling and validating it. </p>
 <p >Returns true if the script is built successfully </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00131">131</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00134">134</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
 
 </div>
 </div>
@@ -327,7 +333,7 @@ Public Member Functions</h2></td></tr>
 <p>Builds the given script string (and root path) by compiling and validating it. </p>
 <p >Returns true if the script is built successfully </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00136">136</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
 
 </div>
 </div>
@@ -357,7 +363,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns the compile error from the previous build. </p>
 <p >The error returned is the overall error of the entire compilation. The compilation is successful if the error returned indicates a success </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00176">176</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00191">191</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -386,7 +392,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns an immutable reference to the compiler. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00141">141</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00156">156</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -415,7 +421,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns a mutable reference to the compiler. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00135">135</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00150">150</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -445,7 +451,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Sets the compiler used by the builder to the given compiler. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00086">86</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00094">94</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -475,7 +481,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns output options for the compiler. </p>
 <p >Returns nullopt if compiler output is turned off </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00199">199</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00214">214</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -506,7 +512,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets output options for the compiler. </p>
 <p >Pass nullopt or {} to turn off any compiler output </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00108">108</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00116">116</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -536,7 +542,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns output options for the builder. </p>
 <p >Returns nullopt if builder output is turned off </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00192">192</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00207">207</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -567,7 +573,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets output options for the builder. </p>
 <p >Pass nullopt or {} to turn off any builder output </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00101">101</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00109">109</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -590,7 +596,66 @@ Public Member Functions</h2></td></tr>
 <p>Prints the output from the previous build. </p>
 <p >Whats printed is based on the compiler, validator and tree output options </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00156">156</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8cpp_source.html">IonScriptBuilder.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7749877fdf9ff0b0887f087932353fc7" name="a7749877fdf9ff0b0887f087932353fc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7749877fdf9ff0b0887f087932353fc7">&#9670;&#160;</a></span>SaveOutput() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto ion::script::ScriptBuilder::SaveOutput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns output save options for the builder. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00235">235</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+
+</div>
+</div>
+<a id="af85fe8760eff06ac7e6148d67dad7720" name="af85fe8760eff06ac7e6148d67dad7720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85fe8760eff06ac7e6148d67dad7720">&#9670;&#160;</a></span>SaveOutput() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ion::script::ScriptBuilder::SaveOutput </td>
+          <td>(</td>
+          <td class="paramtype">script_builder::OutputSaveOptions&#160;</td>
+          <td class="paramname"><em>output_save_options</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets output save options for the builder. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00137">137</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -619,7 +684,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns an immutable reference to the tree. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00153">153</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00168">168</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -648,7 +713,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns a mutable reference to the tree. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00147">147</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00162">162</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -678,7 +743,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns output options for the tree. </p>
 <p >Returns nullopt if tree output is turned off </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00213">213</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00228">228</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -709,7 +774,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets output options for the tree. </p>
 <p >Pass nullopt or {} to turn off any tree output </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00122">122</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00130">130</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -739,7 +804,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns the validate error from the previous build. </p>
 <p >The error returned is the overall error of the entire validation. The validation is okay if the error returned indicates a success </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00184">184</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00199">199</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -769,7 +834,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns an immutable reference to the validator. </p>
 <p >Returns nullopt if no validator is in use by the builder </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00167">167</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00182">182</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -799,7 +864,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns a mutable reference to the validator. </p>
 <p >Returns nullopt if no validator is in use by the builder </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00160">160</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00175">175</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -830,7 +895,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets the validator used by the builder to the given validator. </p>
 <p >Pass nullopt or {} if no validator should be used </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00093">93</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00101">101</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -860,7 +925,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns output options for the validator. </p>
 <p >Returns nullopt if validator output is turned off </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00206">206</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00221">221</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>
@@ -891,7 +956,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets output options for the validator. </p>
 <p >Pass nullopt or {} to turn off any validator output </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00115">115</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html#l00123">123</a> of file <a class="el" href="../../d9/d00/_ion_script_builder_8h_source.html">IonScriptBuilder.h</a>.</p>
 
 </div>
 </div>

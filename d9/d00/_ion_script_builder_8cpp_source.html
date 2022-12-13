@@ -188,117 +188,120 @@ $(document).ready(function(){initNavTree('d9/d00/_ion_script_builder_8cpp_source
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> ScriptBuilder::SaveOutput() noexcept</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (output_options_)</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_function" href="../../de/d00/namespaceion_1_1utilities_1_1file.html#af7370bc9cd4a060a435bb68c14c8eb79">ion::utilities::file::Save</a>(</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            compile_error_.FilePath.string() + <span class="stringliteral">&quot;.output.txt&quot;</span>, <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896">PrintOutput</a>(*output_options_));</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">//Public</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">    Building</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#aab3b93a86f58cc137954041e68a0328f">  101</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#aab3b93a86f58cc137954041e68a0328f">ScriptBuilder::Build</a>(std::string_view name)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    tree_.reset();</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    compile_error_ = {}; <span class="comment">//Reset</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    validate_error_ = {}; <span class="comment">//Reset</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    tree_ = compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a1e3916e1d06732891f66ccaf98545cb1">Compile</a>(name, compile_error_);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">auto</span> result = ValidateTree();</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    SaveOutput();</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">  113</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">ScriptBuilder::BuildFile</a>(std::filesystem::path file_path)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>{</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">auto</span> root_path = file_path.parent_path();</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">BuildFile</a>(std::move(file_path), std::move(root_path));</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a909c1bad8e0acdc8cb0045873d3d9afb">  119</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">ScriptBuilder::BuildFile</a>(std::filesystem::path file_path, std::filesystem::path root_path)</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    tree_.reset();</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    compile_error_ = {}; <span class="comment">//Reset</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    validate_error_ = {}; <span class="comment">//Reset</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    tree_ = compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a397ae51e3d592c42e3e83342b8de23b3">CompileFile</a>(std::move(file_path), std::move(root_path), compile_error_);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">auto</span> result = ValidateTree();</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    SaveOutput();</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>}</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">  131</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">ScriptBuilder::BuildString</a>(std::string str)</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>{</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">BuildString</a>(std::move(str), <span class="stringliteral">&quot;.&quot;</span>);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae093ed6ba084f2de67fc0f75b1df1803">  136</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">ScriptBuilder::BuildString</a>(std::string str, std::filesystem::path root_path)</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>{</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    tree_.reset();</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    compile_error_ = {}; <span class="comment">//Reset</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    validate_error_ = {}; <span class="comment">//Reset</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    tree_ = compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#aee46af1b61658db59b558c174fe93e21">CompileString</a>(std::move(str), std::move(root_path), compile_error_);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keyword">auto</span> result = ValidateTree();</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    SaveOutput();</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">    Outputting</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896">  153</a></span>std::string <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896">ScriptBuilder::PrintOutput</a>(OutputOptions output_options)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">auto</span> error = compile_error_ ?</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <a class="code hl_struct" href="../../dd/d00/struction_1_1script_1_1_script_error.html">ScriptError</a>{compile_error_} :</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <a class="code hl_struct" href="../../dd/d00/struction_1_1script_1_1_script_error.html">ScriptError</a>{validate_error_};</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keyword">auto</span> output = detail::print_output(compile_error_.FilePath,</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a09ef06939850804abf53ee8de8306a75">CompileTime</a>() + (validator_ ? validator_-&gt;ValidateTime() : duration{}),</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        error, output_options);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordflow">if</span> (compiler_output_options_)</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    {</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">if</span> (!std::empty(output))</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            output += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        output += compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a7e1fa3778b9124067479c8cd743b6af7">PrintOutput</a>(*compiler_output_options_);</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (output_options_ &amp;&amp;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        (output_save_options_ == OutputSaveOptions::Always ||</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        compile_error_ || validate_error_)) <span class="comment">//ErrorsOnly</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_function" href="../../de/d00/namespaceion_1_1utilities_1_1file.html#af7370bc9cd4a060a435bb68c14c8eb79">ion::utilities::file::Save</a>(</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            compile_error_.FilePath.string() + <span class="stringliteral">&quot;.output.txt&quot;</span>, <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896">PrintOutput</a>(*output_options_));</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">//Public</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">    Building</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#aab3b93a86f58cc137954041e68a0328f">  104</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#aab3b93a86f58cc137954041e68a0328f">ScriptBuilder::Build</a>(std::string_view name)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    tree_.reset();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    compile_error_ = {}; <span class="comment">//Reset</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    validate_error_ = {}; <span class="comment">//Reset</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    tree_ = compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a1e3916e1d06732891f66ccaf98545cb1">Compile</a>(name, compile_error_);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">auto</span> result = ValidateTree();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    SaveOutput();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">  116</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">ScriptBuilder::BuildFile</a>(std::filesystem::path file_path)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>{</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">auto</span> root_path = file_path.parent_path();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">BuildFile</a>(std::move(file_path), std::move(root_path));</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a909c1bad8e0acdc8cb0045873d3d9afb">  122</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">ScriptBuilder::BuildFile</a>(std::filesystem::path file_path, std::filesystem::path root_path)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>{</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    tree_.reset();</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    compile_error_ = {}; <span class="comment">//Reset</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    validate_error_ = {}; <span class="comment">//Reset</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    tree_ = compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a397ae51e3d592c42e3e83342b8de23b3">CompileFile</a>(std::move(file_path), std::move(root_path), compile_error_);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">auto</span> result = ValidateTree();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    SaveOutput();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">  134</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">ScriptBuilder::BuildString</a>(std::string str)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>{</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">BuildString</a>(std::move(str), <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>}</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae093ed6ba084f2de67fc0f75b1df1803">  139</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">ScriptBuilder::BuildString</a>(std::string str, std::filesystem::path root_path)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>{</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    tree_.reset();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    compile_error_ = {}; <span class="comment">//Reset</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    validate_error_ = {}; <span class="comment">//Reset</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    tree_ = compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#aee46af1b61658db59b558c174fe93e21">CompileString</a>(std::move(str), std::move(root_path), compile_error_);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keyword">auto</span> result = ValidateTree();</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    SaveOutput();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">    Outputting</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896">  156</a></span>std::string <a class="code hl_function" href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896">ScriptBuilder::PrintOutput</a>(OutputOptions output_options)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keyword">auto</span> error = compile_error_ ?</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <a class="code hl_struct" href="../../dd/d00/struction_1_1script_1_1_script_error.html">ScriptError</a>{compile_error_} :</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <a class="code hl_struct" href="../../dd/d00/struction_1_1script_1_1_script_error.html">ScriptError</a>{validate_error_};</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keyword">auto</span> output = detail::print_output(compile_error_.FilePath,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a09ef06939850804abf53ee8de8306a75">CompileTime</a>() + (validator_ ? validator_-&gt;ValidateTime() : duration{}),</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        error, output_options);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">if</span> (compiler_output_options_)</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordflow">if</span> (!std::empty(output))</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            output += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">if</span> (!compile_error_ &amp;&amp; validator_ &amp;&amp; validator_output_options_)</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">if</span> (!std::empty(output))</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            output += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        output += validator_-&gt;PrintOutput(*validator_output_options_);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    }</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        output += compiler_.<a class="code hl_function" href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a7e1fa3778b9124067479c8cd743b6af7">PrintOutput</a>(*compiler_output_options_);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordflow">if</span> (!compile_error_ &amp;&amp; validator_ &amp;&amp; validator_output_options_)</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keywordflow">if</span> (!std::empty(output))</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            output += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">if</span> (tree_ &amp;&amp; tree_print_options_)</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    {</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">if</span> (!std::empty(output))</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            output += <span class="stringliteral">&quot;\n\n[Tree view]&quot;</span>;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        output += tree_-&gt;Print(*tree_print_options_);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        output += validator_-&gt;PrintOutput(*validator_output_options_);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">if</span> (tree_ &amp;&amp; tree_print_options_)</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">if</span> (!std::empty(output))</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            output += <span class="stringliteral">&quot;\n\n[Tree view]&quot;</span>;</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">return</span> output;</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>}</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        output += tree_-&gt;Print(*tree_print_options_);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    }</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>} <span class="comment">//ion::script</span></div>
-<div class="ttc" id="aclassion_1_1script_1_1_script_builder_html_a8228145dc785c9f41d3bc69e49040956"><div class="ttname"><a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">ion::script::ScriptBuilder::BuildString</a></div><div class="ttdeci">bool BuildString(std::string str)</div><div class="ttdoc">Builds the given script string by compiling and validating it.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00131">IonScriptBuilder.cpp:131</a></div></div>
-<div class="ttc" id="aclassion_1_1script_1_1_script_builder_html_a93440858f25b1b4eaa9d067d49db0b5c"><div class="ttname"><a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">ion::script::ScriptBuilder::BuildFile</a></div><div class="ttdeci">bool BuildFile(std::filesystem::path file_path)</div><div class="ttdoc">Builds a script file with the given file path by compiling and validating it.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00113">IonScriptBuilder.cpp:113</a></div></div>
-<div class="ttc" id="aclassion_1_1script_1_1_script_builder_html_aab3b93a86f58cc137954041e68a0328f"><div class="ttname"><a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#aab3b93a86f58cc137954041e68a0328f">ion::script::ScriptBuilder::Build</a></div><div class="ttdeci">bool Build(std::string_view name)</div><div class="ttdoc">Builds a script entry with the given name (from a repository) by compiling and validating it.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00101">IonScriptBuilder.cpp:101</a></div></div>
-<div class="ttc" id="aclassion_1_1script_1_1_script_builder_html_ae3dfd9dfb44360912dd28d8fe9324896"><div class="ttname"><a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896">ion::script::ScriptBuilder::PrintOutput</a></div><div class="ttdeci">std::string PrintOutput(script_builder::OutputOptions output_options=script_builder::OutputOptions::HeaderAndSummary) const</div><div class="ttdoc">Prints the output from the previous build.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00153">IonScriptBuilder.cpp:153</a></div></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">return</span> output;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>} <span class="comment">//ion::script</span></div>
+<div class="ttc" id="aclassion_1_1script_1_1_script_builder_html_a8228145dc785c9f41d3bc69e49040956"><div class="ttname"><a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a8228145dc785c9f41d3bc69e49040956">ion::script::ScriptBuilder::BuildString</a></div><div class="ttdeci">bool BuildString(std::string str)</div><div class="ttdoc">Builds the given script string by compiling and validating it.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00134">IonScriptBuilder.cpp:134</a></div></div>
+<div class="ttc" id="aclassion_1_1script_1_1_script_builder_html_a93440858f25b1b4eaa9d067d49db0b5c"><div class="ttname"><a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#a93440858f25b1b4eaa9d067d49db0b5c">ion::script::ScriptBuilder::BuildFile</a></div><div class="ttdeci">bool BuildFile(std::filesystem::path file_path)</div><div class="ttdoc">Builds a script file with the given file path by compiling and validating it.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00116">IonScriptBuilder.cpp:116</a></div></div>
+<div class="ttc" id="aclassion_1_1script_1_1_script_builder_html_aab3b93a86f58cc137954041e68a0328f"><div class="ttname"><a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#aab3b93a86f58cc137954041e68a0328f">ion::script::ScriptBuilder::Build</a></div><div class="ttdeci">bool Build(std::string_view name)</div><div class="ttdoc">Builds a script entry with the given name (from a repository) by compiling and validating it.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00104">IonScriptBuilder.cpp:104</a></div></div>
+<div class="ttc" id="aclassion_1_1script_1_1_script_builder_html_ae3dfd9dfb44360912dd28d8fe9324896"><div class="ttname"><a href="../../d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896">ion::script::ScriptBuilder::PrintOutput</a></div><div class="ttdeci">std::string PrintOutput(script_builder::OutputOptions output_options=script_builder::OutputOptions::HeaderAndSummary) const</div><div class="ttdoc">Prints the output from the previous build.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d00/_ion_script_builder_8cpp_source.html#l00156">IonScriptBuilder.cpp:156</a></div></div>
 <div class="ttc" id="aclassion_1_1script_1_1_script_compiler_html_a09ef06939850804abf53ee8de8306a75"><div class="ttname"><a href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a09ef06939850804abf53ee8de8306a75">ion::script::ScriptCompiler::CompileTime</a></div><div class="ttdeci">auto CompileTime() const noexcept</div><div class="ttdoc">Returns the compile time of the previous compilation.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d00/_ion_script_compiler_8h_source.html#l00642">IonScriptCompiler.h:642</a></div></div>
 <div class="ttc" id="aclassion_1_1script_1_1_script_compiler_html_a1e3916e1d06732891f66ccaf98545cb1"><div class="ttname"><a href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a1e3916e1d06732891f66ccaf98545cb1">ion::script::ScriptCompiler::Compile</a></div><div class="ttdeci">std::optional&lt; ScriptTree &gt; Compile(std::string_view name, CompileError &amp;error)</div><div class="ttdoc">Compiles a script entry with the given name (from a repository) by lexing, parsing and linking it.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d00/_ion_script_compiler_8cpp_source.html#l02453">IonScriptCompiler.cpp:2453</a></div></div>
 <div class="ttc" id="aclassion_1_1script_1_1_script_compiler_html_a397ae51e3d592c42e3e83342b8de23b3"><div class="ttname"><a href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a397ae51e3d592c42e3e83342b8de23b3">ion::script::ScriptCompiler::CompileFile</a></div><div class="ttdeci">std::optional&lt; ScriptTree &gt; CompileFile(std::filesystem::path file_path, CompileError &amp;error)</div><div class="ttdoc">Compiles a script file with the given file path by lexing, parsing and linking it.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d00/_ion_script_compiler_8cpp_source.html#l02482">IonScriptCompiler.cpp:2482</a></div></div>
 <div class="ttc" id="aclassion_1_1script_1_1_script_compiler_html_a7e1fa3778b9124067479c8cd743b6af7"><div class="ttname"><a href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#a7e1fa3778b9124067479c8cd743b6af7">ion::script::ScriptCompiler::PrintOutput</a></div><div class="ttdeci">std::string PrintOutput(script_compiler::OutputOptions output_options=script_compiler::OutputOptions::SummaryAndUnits) const</div><div class="ttdoc">Prints the output from the previous compilation.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d00/_ion_script_compiler_8cpp_source.html#l02554">IonScriptCompiler.cpp:2554</a></div></div>
 <div class="ttc" id="aclassion_1_1script_1_1_script_compiler_html_aee46af1b61658db59b558c174fe93e21"><div class="ttname"><a href="../../d9/d00/classion_1_1script_1_1_script_compiler.html#aee46af1b61658db59b558c174fe93e21">ion::script::ScriptCompiler::CompileString</a></div><div class="ttdeci">std::optional&lt; ScriptTree &gt; CompileString(std::string str, CompileError &amp;error)</div><div class="ttdoc">Compiles the given script string by lexing, parsing and linking it.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d00/_ion_script_compiler_8cpp_source.html#l02518">IonScriptCompiler.cpp:2518</a></div></div>
-<div class="ttc" id="anamespaceion_1_1script_html"><div class="ttname"><a href="../../df/d00/namespaceion_1_1script.html">ion::script</a></div><div class="ttdoc">Namespace containing scripting functionality.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d00/_ion_8h_source.html#l00440">Ion.h:441</a></div></div>
+<div class="ttc" id="anamespaceion_1_1script_html"><div class="ttname"><a href="../../df/d00/namespaceion_1_1script.html">ion::script</a></div><div class="ttdoc">Namespace containing scripting functionality.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d00/_ion_8h_source.html#l00430">Ion.h:431</a></div></div>
 <div class="ttc" id="anamespaceion_1_1utilities_1_1file_html_af7370bc9cd4a060a435bb68c14c8eb79"><div class="ttname"><a href="../../de/d00/namespaceion_1_1utilities_1_1file.html#af7370bc9cd4a060a435bb68c14c8eb79">ion::utilities::file::Save</a></div><div class="ttdeci">bool Save(const std::filesystem::path &amp;file_path, std::string_view data, FileSaveMode file_mode) noexcept</div><div class="ttdoc">Opens a file at the given file path and save the given data.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d00/_ion_file_utility_8cpp_source.html#l00387">IonFileUtility.cpp:387</a></div></div>
 <div class="ttc" id="anamespaceion_1_1utilities_1_1string_html_ac3046f166e7b30611b320858d0c3cec7"><div class="ttname"><a href="../../d1/d00/namespaceion_1_1utilities_1_1string.html#ac3046f166e7b30611b320858d0c3cec7">ion::utilities::string::Concat</a></div><div class="ttdeci">std::string Concat(const Strings &amp;parts)</div><div class="ttdoc">Concatenates all parts to form a single string.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d00/_ion_string_utility_8cpp_source.html#l00409">IonStringUtility.cpp:409</a></div></div>
 <div class="ttc" id="anamespaceion_1_1utilities_1_1string_html_af3e05950aeb609a1e402c873c83dd5d8"><div class="ttname"><a href="../../d1/d00/namespaceion_1_1utilities_1_1string.html#af3e05950aeb609a1e402c873c83dd5d8">ion::utilities::string::Format</a></div><div class="ttdeci">std::string Format(real number, std::string_view format_str)</div><div class="ttdoc">Formats the given number with the given specifiers.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d00/_ion_string_utility_8cpp_source.html#l00469">IonStringUtility.cpp:469</a></div></div>

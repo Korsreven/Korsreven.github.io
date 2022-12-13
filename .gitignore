@@ -1,3 +1,6 @@
 # Files built by Doxygen
 *.map
 *.md5
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/

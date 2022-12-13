@@ -15,6 +15,8 @@ var classion_1_1script_1_1_script_builder =
     [ "Output", "d2/d00/classion_1_1script_1_1_script_builder.html#a1678aa508c3e77a5414e7afc6258b954", null ],
     [ "Output", "d2/d00/classion_1_1script_1_1_script_builder.html#a65e679ebd78e9f04fe4651b33741210d", null ],
     [ "PrintOutput", "d2/d00/classion_1_1script_1_1_script_builder.html#ae3dfd9dfb44360912dd28d8fe9324896", null ],
+    [ "SaveOutput", "d2/d00/classion_1_1script_1_1_script_builder.html#a7749877fdf9ff0b0887f087932353fc7", null ],
+    [ "SaveOutput", "d2/d00/classion_1_1script_1_1_script_builder.html#af85fe8760eff06ac7e6148d67dad7720", null ],
     [ "Tree", "d2/d00/classion_1_1script_1_1_script_builder.html#a6a65837b5e2dfd9dc8616353598a8e83", null ],
     [ "Tree", "d2/d00/classion_1_1script_1_1_script_builder.html#ab3718cdc8fb7100d4151b84bf25d8e16", null ],
     [ "TreeOutput", "d2/d00/classion_1_1script_1_1_script_builder.html#ac59083a199eb930b4efe0e6f20d7263f", null ],
